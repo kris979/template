@@ -25,14 +25,29 @@ public class BinaryTree {
 		if (root == null) {
 			return 0;
 		}
-		return 0;
+
+		int ls = 0, rs = 0;
+		Node left = root.getLeft();
+		Node right = root.getRight(); 
+		
+		if ( left != null) {
+			ls = size(left);
+		}
+		
+		if ( right != null) {
+			rs = size(right);
+		}
+		
+		return ls + rs + 1;
 	}
 	
 	public static void main(String[] args) {
 		Node left = new Node(null,null, 45);
-		Node root = new Node(left, null, 50);
+		Node right = new Node(null,null, 55);
+		Node root = new Node(left, right, 50);
 		BinaryTree tree = new BinaryTree();
 		System.out.println(tree.getHeight(root));
+		System.out.println(tree.size(root));
 	}
 
 }
