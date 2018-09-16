@@ -1,6 +1,6 @@
 package com.agisoft.paint.commands;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -9,13 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.agisoft.paint.commands.DrawCanvasCommand;
 import com.agisoft.paint.drawable.Line;
 import com.agisoft.paint.drawable.Rectangle;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.equalTo;
 
 public class DrawCanvasCommandTest {
 

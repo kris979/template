@@ -79,34 +79,34 @@ public class Basket {
 	/**
 	 * Added for reviewer convenience.
 	 */
-//	public static void main(String[] args) {
-//		Apple apple = new Apple();
-//		Orange orange = new Orange();
-//		Watermelon watermelon = new Watermelon();
-//		Basket basket = new Basket();
-//		
-//		basket.add(Apple.class, apple);
-//		basket.add(Apple.class, apple);
-//		basket.add(Apple.class, apple);
-//		basket.add(Apple.class, apple);
-//		
-//		double price = basket.price();
-//		System.out.println("Cost of apples: " + price);
-//		
-//		basket.add(Orange.class, orange);
-//		basket.add(Orange.class, orange);
-//		basket.add(Orange.class, orange);
-//		price = basket.price();
-//		System.out.println("Cost of apples,oranges: " + price);
-//		
-//		basket.add(Watermelon.class, watermelon);
-//		basket.add(Watermelon.class, watermelon);
-//		basket.add(Watermelon.class, watermelon);
-//		basket.add(Watermelon.class, watermelon);
-//		basket.add(Watermelon.class, watermelon);
-//		basket.add(Watermelon.class, watermelon);
-//		price = basket.price();
-//		System.out.println("Cost of apples,oranges and watermelons: " + price);
-//	}
+	public static void main(String[] args) {
+		Apple apple = new Apple();
+		Orange orange = new Orange();
+		Watermelon watermelon = new Watermelon();
+		Basket basket = new Basket();
+		
+		basket.add(Apple.class, apple);
+		basket.add(Apple.class, apple);
+		basket.add(Apple.class, apple);
+		basket.add(Apple.class, apple);
+		
+		double price = basket.price();
+		System.out.println("Cost of apples: " + price);
+		
+		basket.add(Orange.class, orange);
+		basket.add(Orange.class, orange);
+		basket.add(Orange.class, orange);
+		price = basket.price();
+		System.out.println("Cost of apples,oranges: " + price);
+		
+		basket.add(Watermelon.class, watermelon);
+		basket.add(Watermelon.class, watermelon);
+		basket.add(Watermelon.class, watermelon);
+		basket.add(Watermelon.class, watermelon);
+		basket.add(Watermelon.class, watermelon);
+		basket.add(Watermelon.class, watermelon);
+		price = basket.price();
+		System.out.println("Cost of apples,oranges and watermelons: " + price);
+	}
 
 }

@@ -3,7 +3,6 @@ package supermarket.items;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
 
 import org.junit.Test;
 

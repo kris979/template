@@ -33,6 +33,6 @@ public class LineTest {
 	
 	@Test(expected = InvalidShapeException.class)
 	public void testInvalidLine() {
-		Line line = new Line(1,1,5,5);
+		new Line(1,1,5,5);
 	}
 }

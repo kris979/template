@@ -45,7 +45,7 @@ public class RectangleTest {
 	
 	@Test(expected = InvalidShapeException.class)
 	public void testInvalidLine() {
-		Rectangle line = new Rectangle(10,2,5,5);
+		new Rectangle(10,2,5,5);
 	}
 
 }
