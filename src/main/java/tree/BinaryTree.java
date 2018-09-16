@@ -56,6 +56,9 @@ public class BinaryTree {
 		return ls + rs + 1;
 	}
 
+	/**
+	 * left - root - right
+	 */
 	List<Integer> inOrder(Node root) {
 		List<Integer> result = new ArrayList<>();
 		if (root == null) {
