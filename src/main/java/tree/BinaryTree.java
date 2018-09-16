@@ -18,10 +18,30 @@ public class BinaryTree {
 		return "BinaryTree [root=" + root + "]";
 	}
 
+	public int getHeight(Node root) {
+		if (root == null) {
+			return 0;
+		}
+		
+		int lh = 0, rh = 0;
+		Node left = root.getLeft();
+		Node right = root.getRight(); 
+		
+		if ( left != null) {
+			lh = getHeight(left);
+		}
+		if (right != null) {
+			rh = getHeight(right);
+		}
+		
+		return (lh >= rh ? lh : rh)+1;
+	}
+	
 	public static void main(String[] args) {
-		Node root = new Node(null, null, 0);
+		Node left = new Node(null,null, 45);
+		Node root = new Node(left, null, 50);
 		BinaryTree tree = new BinaryTree(root);
-		System.out.println(tree);
+		System.out.println(tree.getHeight(root));
 	}
 
 }
