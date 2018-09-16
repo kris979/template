@@ -1,16 +1,15 @@
 package tree;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
-/**		
- * 		 1
- *     2    3
- *   4   5
- * Depth First Traversals: 
- * (a) Inorder (Left, Root, Right)   : 4 2 5 1 3 
- * (b) Preorder (Root, Left, Right)  : 1 2 4 5 3 
- * (c) Postorder (Left, Right, Root) : 4 5 2 3 1
+/**
+ * 1 2 3 4 5 Depth First Traversals: (a) Inorder (Left, Root, Right) : 4 2 5 1 3
+ * (b) Preorder (Root, Left, Right) : 1 2 4 5 3 (c) Postorder (Left, Right,
+ * Root) : 4 5 2 3 1
  * 
  * Breadth First or Level Order Traversal : 1 2 3 4 5
  *
@@ -64,21 +63,69 @@ public class BinaryTree {
 		if (root == null) {
 			return result;
 		}
-		
+
 		Node left = root.getLeft();
 		Node right = root.getRight();
-		
+
 		if (left != null) {
 			result.addAll(inOrder(left));
 		}
 
 		result.add(root.getValue());
-		
+
 		if (right != null) {
 			result.addAll(inOrder(right));
 		}
-		
+
 		return result;
+	}
+
+	public List<Integer> levelOrderTraversal(Node root) {
+		List<Integer> result = new ArrayList<>();
+		if (root == null) {
+			return result;
+		}
+        Queue<Node> queue = new LinkedList<Node>(); 
+        queue.add(root); 
+        while (!queue.isEmpty())  
+        { 
+  
+            Node tempNode = queue.poll(); 
+            result.add(tempNode.getValue());
+            
+            if (tempNode.getLeft() != null) { 
+                queue.add(tempNode.getLeft()); 
+            } 
+  
+            if (tempNode.getRight()!= null) { 
+                queue.add(tempNode.getRight()); 
+            } 
+        } 
+		return result;
+	}
+	
+	public List<Integer> recursiveLevelOrderTraversal(Node root) {
+		List<Integer> result = new ArrayList<>();
+		if (root == null) {
+			return result;
+		}
+		int h = getHeight(root);
+		for (int i = 1; i <= h; i++) {
+			getGivenLevel(root, i, result);
+		}
+		return result;
+	}
+
+	private void getGivenLevel(Node root, int level, List<Integer> result) {
+		if (root == null) {
+			return;
+		}
+		if (level == 1) {
+			result.add(root.getValue());
+		} else if (level > 1) {
+			getGivenLevel(root.getLeft(), level-1, result);
+			getGivenLevel(root.getRight(), level-1, result);
+		}
 	}
 
 	public static void main(String[] args) {
@@ -91,6 +138,8 @@ public class BinaryTree {
 		System.out.println(tree.getHeight(root));
 		System.out.println(tree.size(root));
 		System.out.println(tree.inOrder(root));
+		System.out.println(tree.recursiveLevelOrderTraversal(root));
+		System.out.println(tree.levelOrderTraversal(root));
 	}
 
 }
