@@ -2,22 +2,6 @@ package tree;
 
 public class BinaryTree {
 	
-	private Node root;
-
-	public BinaryTree(Node root) {
-		super();
-		this.root = root;
-	}
-
-	public final Node getRoot() {
-		return root;
-	}
-
-	@Override
-	public String toString() {
-		return "BinaryTree [root=" + root + "]";
-	}
-
 	public int getHeight(Node root) {
 		if (root == null) {
 			return 0;
@@ -37,10 +21,17 @@ public class BinaryTree {
 		return (lh >= rh ? lh : rh)+1;
 	}
 	
+	public int size(Node root) {
+		if (root == null) {
+			return 0;
+		}
+		return 0;
+	}
+	
 	public static void main(String[] args) {
 		Node left = new Node(null,null, 45);
 		Node root = new Node(left, null, 50);
-		BinaryTree tree = new BinaryTree(root);
+		BinaryTree tree = new BinaryTree();
 		System.out.println(tree.getHeight(root));
 	}
 
