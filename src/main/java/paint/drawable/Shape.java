@@ -1,4 +1,4 @@
-package com.agisoft.paint.drawable;
+package paint.drawable;
 
 /**
  * Most probably Shape would become an interface in the future when more shapes are added. 

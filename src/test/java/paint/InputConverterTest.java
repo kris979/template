@@ -1,4 +1,4 @@
-package com.agisoft.paint;
+package paint;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
@@ -6,10 +6,10 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import com.agisoft.paint.commands.Command;
-import com.agisoft.paint.commands.DrawCanvasCommand;
-import com.agisoft.paint.commands.InvalidCommand;
-import com.agisoft.paint.commands.QuitCommand;
+import paint.commands.Command;
+import paint.commands.DrawCanvasCommand;
+import paint.commands.InvalidCommand;
+import paint.commands.QuitCommand;
 
 
 public class InputConverterTest {

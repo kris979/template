@@ -1,4 +1,4 @@
-package com.agisoft.paint.commands;
+package paint.commands;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.*;

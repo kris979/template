@@ -1,6 +1,6 @@
-package com.agisoft.paint.commands;
+package paint.commands;
 
-import com.agisoft.paint.drawable.Drawable;
+import paint.drawable.Drawable;
 
 public class DrawCanvasCommand implements Command {
 

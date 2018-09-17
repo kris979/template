@@ -1,4 +1,4 @@
-package com.agisoft.paint.commands;
+package paint.commands;
 
 public class QuitCommand implements Command {
 

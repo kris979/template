@@ -1,10 +1,10 @@
-package com.agisoft.paint;
+package paint;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-import com.agisoft.paint.commands.Command;
+import paint.commands.Command;
 
 public class Main {
 	

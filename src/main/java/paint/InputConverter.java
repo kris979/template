@@ -1,14 +1,14 @@
-package com.agisoft.paint;
+package paint;
 
 import java.util.Optional;
 
-import com.agisoft.paint.commands.Command;
-import com.agisoft.paint.commands.DrawCanvasCommand;
-import com.agisoft.paint.commands.InvalidCommand;
-import com.agisoft.paint.commands.QuitCommand;
-import com.agisoft.paint.drawable.InvalidShapeException;
-import com.agisoft.paint.drawable.Line;
-import com.agisoft.paint.drawable.Rectangle;
+import paint.commands.Command;
+import paint.commands.DrawCanvasCommand;
+import paint.commands.InvalidCommand;
+import paint.commands.QuitCommand;
+import paint.drawable.InvalidShapeException;
+import paint.drawable.Line;
+import paint.drawable.Rectangle;
 
 public class InputConverter {
 

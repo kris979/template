@@ -1,4 +1,4 @@
-package com.agisoft.paint.drawable;
+package paint.drawable;
 
 public class Rectangle extends Shape {
 	

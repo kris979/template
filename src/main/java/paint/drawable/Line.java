@@ -1,4 +1,4 @@
-package com.agisoft.paint.drawable;
+package paint.drawable;
 
 /**
  * Is Line a Shape? 

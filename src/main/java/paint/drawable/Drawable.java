@@ -1,4 +1,4 @@
-package com.agisoft.paint.drawable;
+package paint.drawable;
 
 /**
  * This interface should be implemented by shapes that know how to draw themselves on a canvas

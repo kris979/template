@@ -1,11 +1,11 @@
-package com.agisoft.paint.drawable;
+package paint.drawable;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class RectangleTest {
+public class LineTest {
 
 	private final int width = 10;
 	private final int height = 10;
@@ -22,30 +22,17 @@ public class RectangleTest {
 	
 	@Test
 	public void test() {
-		Rectangle rec = new Rectangle(2, 2, 5, 4);
-		char[][] updatedCanvas = rec.draw(width, height, canvas);
-		
-		//top
+		Line line = new Line(2,2,5,2);
+		char[][] updatedCanvas = line.draw(width, height, canvas);
 		char[] expectedLine = updatedCanvas[1];
-		for (int i = 1; i < 5; i++) {
-			assertEquals('x', expectedLine[i]);
-		}
-		
-		//middle
-		expectedLine = updatedCanvas[2];
-		assertEquals('x', expectedLine[1]);
-
-		//bottom
-		expectedLine = updatedCanvas[3];
-		for (int i = 1; i < 5; i++) {
+		for (int i = 1; i < 4; i++) {
 			assertEquals('x', expectedLine[i]);
 		}
 	}
-	
+
 	
 	@Test(expected = InvalidShapeException.class)
 	public void testInvalidLine() {
-		new Rectangle(10,2,5,5);
+		new Line(1,1,5,5);
 	}
-
 }

@@ -1,4 +1,4 @@
-package com.agisoft.paint.commands;
+package paint.commands;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,8 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.agisoft.paint.drawable.Line;
-import com.agisoft.paint.drawable.Rectangle;
+import paint.drawable.Line;
+import paint.drawable.Rectangle;
 
 public class DrawCanvasCommandTest {
 
