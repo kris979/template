@@ -18,14 +18,11 @@ public class UberTest {
 	private int[] productArray(int[] input) {
 		int[] output = new int[input.length];
 		int product = 1;
+		for (int i : input) {
+			product*=i;
+		}
 		for (int i = 0; i < input.length; i++) {
-			for (int j = 0; j < input.length; j++) {
-				if (i != j) {
-					product*=input[j];
-				}
-			}
-			output[i] = product;
-			product = 1;
+			output[i]=product/input[i];
 		}
 		return output;
 	}
