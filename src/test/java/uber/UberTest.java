@@ -2,6 +2,10 @@ package uber;
 
 import static org.junit.Assert.assertArrayEquals;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import org.junit.Test;
 
 public class UberTest {
@@ -16,15 +20,8 @@ public class UberTest {
 	 * be [2, 3, 6].
 	 */
 	private int[] productArray(int[] input) {
-		int[] output = new int[input.length];
-		int product = 1;
-		for (int i : input) {
-			product*=i;
-		}
-		for (int i = 0; i < input.length; i++) {
-			output[i]=product/input[i];
-		}
-		return output;
+		int product = Arrays.stream(input).reduce(1, (a,b) -> a*b);
+		return Arrays.stream(input).map((n) -> product/n).toArray();
 	}
 	
 	@Test
