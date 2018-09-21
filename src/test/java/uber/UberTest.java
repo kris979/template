@@ -3,8 +3,6 @@ package uber;
 import static org.junit.Assert.assertArrayEquals;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import org.junit.Test;
 
