@@ -152,12 +152,12 @@ public class DailyProblems {
 
 	public static void main(String[] args) {
 
-		String input = "sdfsdkfhskdjfhskjdhfksjdhfkjsdfnbkjifdjhkdahf";
-		int[] input2 = new int[] {4,3,4,3};
+//		String input = "sdfsdkfhskdjfhskjdhfksjdhfkjsdfnbkjifdjhkdahf";
+//		int[] input2 = new int[] {4,3,4,3};
 
 		DailyProblems d = new DailyProblems();
-		char firstNonRepeatingChar = d.firstNonRepeatingChar(input);
-		int numberOfDistinctPairs = d.numberOfDistinctPairs(input2, 8);
+//		char firstNonRepeatingChar = d.firstNonRepeatingChar(input);
+//		int numberOfDistinctPairs = d.numberOfDistinctPairs(input2, 8);
 //		
 //		d.substraings("aaabbaa");
 //		System.out.println(d.numWays(5));
