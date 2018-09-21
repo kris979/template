@@ -2,6 +2,7 @@ package kata;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -16,6 +17,7 @@ public class DailyProblems {
 	}
 
 	char firstNonRepeatingChar(String input) {
+		
 		LinkedHashMap<Character, Integer> counterMap = new LinkedHashMap<>();
 		
 		char[] charArray = input.toCharArray();
@@ -39,7 +41,7 @@ public class DailyProblems {
 		return 0;
 	}
 
-	int numberOfDistinctPairs(int[] input, int k) {
+	int numberOfDistinctPairsThatAddUpToK(int[] input, int k) {
 		Set<Integer> reminders = new HashSet<>();
 		
 		int counter = 0;
@@ -150,6 +152,54 @@ public class DailyProblems {
 		}
 	}
 
+	/**
+	 * For example for 3 vendors in the shop: [{0, 4, 5}, {2, 8, 3}, {7, 11, 10}], the result should be [{0, 2, 5}, {2, 8, 3}, {8, 11, 10}]”
+	 */
+	public static int lowestPrice(int[] timeSlot) {
+		
+		class Vendor {
+			
+			int start;
+			int end;
+			int price;
+			
+			public Vendor(int start, int end, int price) {
+				super();
+				this.start = start;
+				this.end = end;
+				this.price = price;
+			}
+
+			boolean isValid(int[] slot) {
+				if (start <= slot[0] && end >= slot[1]) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
+		
+		List<Vendor> vendors = new ArrayList<>();
+		vendors.add(new Vendor(0, 4, 5));
+		vendors.add(new Vendor(2, 8, 3));
+		vendors.add(new Vendor(7, 11, 10));
+		
+		List<Integer> validPrices = new ArrayList<>();
+		
+		for (Vendor vendor : vendors) {
+			if (vendor.isValid(timeSlot)) {
+				validPrices.add(vendor.price);
+			}
+		}
+		
+		if (validPrices.isEmpty()) {
+			throw new IllegalArgumentException("invalid slot");
+		}
+		
+		Collections.sort(validPrices);
+		
+		return validPrices.get(0);
+	}
 	public static void main(String[] args) {
 
 //		String input = "sdfsdkfhskdjfhskjdhfksjdhfkjsdfnbkjifdjhkdahf";
