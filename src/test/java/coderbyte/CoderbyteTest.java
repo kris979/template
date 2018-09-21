@@ -37,8 +37,12 @@ public class CoderbyteTest {
 	}
 
 	@Test
-	public void test() {
+	public void testLongestWord() {
 		assertThat(longestWord("fun&!! time"), is("time"));
+	}
+	
+	@Test
+	public void reverseArray() {
 		assertThat(reverse("Coderbyte"), is("etybredoC"));
 	}
 
