@@ -39,6 +39,21 @@ public class SerializeDeserializeBTreeTest {
 		return serialized.toString();
 	}
 
+	private void preOrder(Node root, StringBuilder serialized) {
+		if (root == null) {
+			serialized.append("-1");
+		}
+		
+		serialized.append(root.getValue());
+		
+		if (root.getLeft() != null) {
+			preOrder(root.getLeft(),serialized);
+		}
+		if (root.getRight() != null) {
+			preOrder(root.getRight(),serialized);
+		}
+	}
+
 	private Node deserialize(String tree) {
 		return deserialize(tree.toCharArray(), -1);
 	}
@@ -54,20 +69,6 @@ public class SerializeDeserializeBTreeTest {
 		return node;
 	}
 	
-	private void preOrder(Node root, StringBuilder serialized) {
-		if (root == null) {
-			serialized.append("-1");
-		}
-		
-		serialized.append(root.getValue());
-		
-		if (root.getLeft() != null) {
-			preOrder(root.getLeft(),serialized);
-		}
-		if (root.getRight() != null) {
-			preOrder(root.getRight(),serialized);
-		}
-	}
 	
 	@Test
 	public void serializeTest() {
