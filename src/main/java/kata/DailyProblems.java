@@ -248,7 +248,7 @@ public class DailyProblems {
 	 * @return
 	 */
 	int findFirstPositiveMissingInteger(int[] input) {
-		int[] present = new int[10];
+		int[] present = new int[1000];
 
 		for (int i = 0; i < present.length; i++) {
 			present[i] = -1;
