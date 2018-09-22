@@ -1,5 +1,7 @@
 package kata;
 
+import static org.junit.Assert.assertArrayEquals;
+
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -10,14 +12,6 @@ import static org.hamcrest.Matchers.is;
 public class DailyProblemsTest {
 	
 	private DailyProblems dp = new DailyProblems();
-
-
-//		
-//		d.substraings("aaabbaa");
-//		System.out.println(d.numWays(5));
-//		System.out.println(d.compress("aasssscc"));
-//		System.out.println(Arrays.toString(d.sumOfFractions(new int[]{2, 4},new int[]{2,4})));
-//	}
 
 	@Test
 	public void firstUniqueCharTest() { 
@@ -36,5 +30,27 @@ public class DailyProblemsTest {
 		assertThat(numberOfDistinctPairsThatAddUpTo10, is(equalTo(1)));
 	}
 	
+	@Test
+	public void sumOfFractionsTest() { 
+		int[] sumOfFractions = dp.sumOfFractions(new int[]{2, 4},new int[]{2,4});
+		assertArrayEquals(sumOfFractions, new int[] {4,4});
+		sumOfFractions = dp.sumOfFractions(new int[]{2, 4},new int[]{1,4});
+		assertArrayEquals(sumOfFractions, new int[] {3,4});
+	}
 	
+	@Test
+	public void compressStringTest() { 
+		String compressed = dp.compress("aasssscc");
+		assertThat(compressed, is(equalTo("a2s4c2")));
+	}
+	
+	@Test
+	public void numberOfWaysToClimbStairsTest() { 
+		assertThat(dp.numWays(3), is(equalTo(4)));
+	}
+	
+	@Test
+	public void substringsTest() { 
+		dp.substraings("aaabbaa");
+	}
 }

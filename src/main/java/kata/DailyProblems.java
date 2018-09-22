@@ -1,7 +1,6 @@
 package kata;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,6 +10,14 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+/**
+ * @author kris9
+ *
+ */
+/**
+ * @author kris9
+ *
+ */
 public class DailyProblems {
 
 	public DailyProblems() {
@@ -68,7 +75,7 @@ public class DailyProblems {
 	/**
 	 * @param input
 	 */
-	void substraings(String input) {
+	public void substraings(String input) {
 		Map<Character, String> substrings = new HashMap<>();
 		char[] charArray = input.toCharArray();
 		Character previous = charArray[0];
@@ -95,7 +102,16 @@ public class DailyProblems {
 		System.out.println(substrings);
 	}
 	
-	int numWays(int input) {
+	
+	/**
+	 * number of ways you can climb the stairs
+	 * 
+	 * you can jump by 1,2 or 3 steps at a time
+	 * 
+	 * if jump was only allowed by 1 or 2 steps then we woudl remove else and 
+	 * int output = numWays(input-1) + numWays(input-2);
+	 */
+	public int numWays(int input) {
 		if( input == 0 || input == 1) {
 			return 1;
 		} else if (input == 2) {
@@ -106,14 +122,17 @@ public class DailyProblems {
 		return output;
 	}
 	
-	String compress(String input) {
+	/**
+	 * i.e. aaabbcc becomes a3b2c2
+	 * 
+	 */
+	public String compress(String input) {
 		if (input == null || input.equals("")) {
 			return input;
 		}
 		
 		StringBuilder s = new StringBuilder();
 		Character previous = input.toCharArray()[0];
-		s.append(previous);
 		int counter = 0;
 		for (Character c  : input.toCharArray()) {
 			if (c.equals(previous)) {
@@ -130,7 +149,12 @@ public class DailyProblems {
 		return s.toString();
 	}
 	
-	int[] sumOfFractions(int[] a, int[] b) {
+	/**
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public int[] sumOfFractions(int[] a, int[] b) {
 		if (a.length != 2 && a.length != 2) {
 			throw new IllegalArgumentException();
 		}
@@ -213,18 +237,4 @@ public class DailyProblems {
 		return validPrices.get(0);
 	}
 	
-	public static void main(String[] args) {
-
-//		String input = "sdfsdkfhskdjfhskjdhfksjdhfkjsdfnbkjifdjhkdahf";
-//		int[] input2 = new int[] {4,3,4,3};
-
-		DailyProblems d = new DailyProblems();
-//		char firstNonRepeatingChar = d.firstNonRepeatingChar(input);
-//		int numberOfDistinctPairs = d.numberOfDistinctPairs(input2, 8);
-//		
-//		d.substraings("aaabbaa");
-//		System.out.println(d.numWays(5));
-		System.out.println(d.compress("aasssscc"));
-		System.out.println(Arrays.toString(d.sumOfFractions(new int[]{2, 4},new int[]{2,4})));
-	}
 }
