@@ -51,6 +51,12 @@ public class DailyProblemsTest {
 	
 	@Test
 	public void substringsTest() { 
-		dp.substraings("aaabbaa");
+//		dp.substraings("aaabbaa");
+	}
+	
+	@Test
+	public void findFirstPositiveMissingIntegerTest() {
+		assertThat(dp.findFirstPositiveMissingInteger(new int[] {3, 4, -1, 1}), is(equalTo(2)));
+		assertThat(dp.findFirstPositiveMissingInteger(new int[] {1, 2, 0}), is(equalTo(3)));
 	}
 }
