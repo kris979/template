@@ -2,7 +2,7 @@ package tree;
 
 public class Node {
 
-	private final Node left, right;
+	private Node left, right;
 	private final Integer value;
 	
 	public Node(Node left, Node right, Integer value) {
@@ -27,6 +27,14 @@ public class Node {
 	@Override
 	public String toString() {
 		return "Node [value=" + value + "]";
+	}
+
+	public final void setLeft(Node left) {
+		this.left = left;
+	}
+
+	public final void setRight(Node right) {
+		this.right = right;
 	}
 
 }
