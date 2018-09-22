@@ -14,7 +14,7 @@ import tree.Node;
  * @author kris9
  *
  */
-public class GoogleTest {
+public class SerializeDeserializeBTreeTest {
 	
 	/**
 	 * Given the root to a binary tree, implement serialize(root), which serializes
