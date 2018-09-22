@@ -16,7 +16,11 @@ public class DailyProblems {
 	public DailyProblems() {
 	}
 
-	char firstNonRepeatingChar(String input) {
+	/**
+	 * @param input
+	 * @return
+	 */
+	public char firstNonRepeatingChar(String input) {
 		
 		LinkedHashMap<Character, Integer> counterMap = new LinkedHashMap<>();
 		
@@ -41,7 +45,12 @@ public class DailyProblems {
 		return 0;
 	}
 
-	int numberOfDistinctPairsThatAddUpToK(int[] input, int k) {
+	/**
+	 * @param input
+	 * @param k
+	 * @return
+	 */
+	public int numberOfDistinctPairsThatAddUpToK(int[] input, int k) {
 		Set<Integer> reminders = new HashSet<>();
 		
 		int counter = 0;
@@ -56,6 +65,9 @@ public class DailyProblems {
 		return counter;
 	}
 	
+	/**
+	 * @param input
+	 */
 	void substraings(String input) {
 		Map<Character, String> substrings = new HashMap<>();
 		char[] charArray = input.toCharArray();
@@ -200,6 +212,7 @@ public class DailyProblems {
 		
 		return validPrices.get(0);
 	}
+	
 	public static void main(String[] args) {
 
 //		String input = "sdfsdkfhskdjfhskjdhfksjdhfkjsdfnbkjifdjhkdahf";
