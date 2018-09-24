@@ -22,4 +22,15 @@ public class CoderbyteTest {
 		assertThat(cb.reverse("Coderbyte"), is("etybredoC"));
 	}
 
+	@Test
+	public void simpleAdding() {
+		assertThat(cb.simpleAdding(12), is(78));
+		assertThat(cb.simpleAdding(140), is(9870));
+	}
+	
+	@Test
+	public void convertStringTest() {
+		assertThat(cb.letterChanges("hello*3"), is("Ifmmp*3"));
+		assertThat(cb.letterChanges("fun times!"), is("gvO Ujnft!"));
+	}
 }

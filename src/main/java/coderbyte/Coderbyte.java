@@ -1,5 +1,7 @@
 package coderbyte;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,7 +36,20 @@ public class Coderbyte {
 		return new String(charArray);
 	}
 	
-	public void simpleAdding() {
-		
+	public int simpleAdding(int num) {
+		if (num == 0) {
+			return 0;
+		}
+		return num + simpleAdding(--num);
 	}
+	
+    public String letterChanges(String str) {
+        StringBuilder result = new StringBuilder();
+        char[] strChars = str.toLowerCase().toCharArray();
+        char[] replacements = {'b', 'c', 'd', 'E', 'f', 'g', 'h', 'I', 'j', 'k', 'l', 'm', 'n', 'O', 'p', 'q', 'r', 's', 't', 'U', 'v', 'w', 'x', 'y', 'z', 'A'};
+        for (int i = 0; i < str.length(); i++) {
+            result.append(strChars[i] >= 'a' && strChars[i] <= 'z' ? replacements[strChars[i] - 97] : strChars[i]);
+        }
+        return result.toString();
+    }
 }
