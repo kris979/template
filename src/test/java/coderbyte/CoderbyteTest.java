@@ -40,6 +40,7 @@ public class CoderbyteTest {
 		assertThat(cb.capitalize("i ran there"), is("I Ran There"));
 	}
 
+
 //	TODO:finish it
 //	@Test
 //	public void simpleSymbolsTest() {
