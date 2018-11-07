@@ -15,14 +15,14 @@ import java.util.Queue;
  */
 public class BinaryTree {
 
-	public int getHeight(Node root) {
+	public int getHeight(Node<Integer> root) {
 		if (root == null) {
 			return 0;
 		}
 
 		int lh = 0, rh = 0;
-		Node left = root.getLeft();
-		Node right = root.getRight();
+		Node<Integer> left = root.getLeft();
+		Node<Integer> right = root.getRight();
 
 		if (left != null) {
 			lh = getHeight(left);
@@ -34,14 +34,14 @@ public class BinaryTree {
 		return (lh >= rh ? lh : rh) + 1;
 	}
 
-	public int size(Node root) {
+	public int size(Node<Integer> root) {
 		if (root == null) {
 			return 0;
 		}
 
 		int ls = 0, rs = 0;
-		Node left = root.getLeft();
-		Node right = root.getRight();
+		Node<Integer> left = root.getLeft();
+		Node<Integer> right = root.getRight();
 
 		if (left != null) {
 			ls = size(left);
@@ -57,14 +57,14 @@ public class BinaryTree {
 	/**
 	 * left - root - right
 	 */
-	List<Integer> inOrder(Node root) {
+	List<Integer> inOrder(Node<Integer> root) {
 		List<Integer> result = new ArrayList<>();
 		if (root == null) {
 			return result;
 		}
 
-		Node left = root.getLeft();
-		Node right = root.getRight();
+		Node<Integer> left = root.getLeft();
+		Node<Integer> right = root.getRight();
 
 		if (left != null) {
 			result.addAll(inOrder(left));
@@ -79,31 +79,31 @@ public class BinaryTree {
 		return result;
 	}
 
-	public List<Integer> levelOrderTraversal(Node root) {
+	public List<Integer> levelOrderTraversal(Node<Integer> root) {
 		List<Integer> result = new ArrayList<>();
 		if (root == null) {
 			return result;
 		}
-        Queue<Node> queue = new LinkedList<Node>(); 
+        Queue<Node<Integer>> queue = new LinkedList<Node<Integer>>();
         queue.add(root); 
         while (!queue.isEmpty())  
         { 
   
-            Node tempNode = queue.poll(); 
+            Node<Integer> tempNode = queue.poll();
             result.add(tempNode.getValue());
             
-            if (tempNode.getLeft() != null) { 
-                queue.add(tempNode.getLeft()); 
+            if (tempNode.getLeft() != null) {
+                queue.add(tempNode.getLeft());
             } 
   
-            if (tempNode.getRight()!= null) { 
-                queue.add(tempNode.getRight()); 
+            if (tempNode.getRight() != null) {
+                queue.add(tempNode.getRight());
             } 
         } 
 		return result;
 	}
 	
-	public List<Integer> recursiveLevelOrderTraversal(Node root) {
+	public List<Integer> recursiveLevelOrderTraversal(Node<Integer> root) {
 		List<Integer> result = new ArrayList<>();
 		if (root == null) {
 			return result;
@@ -115,7 +115,7 @@ public class BinaryTree {
 		return result;
 	}
 
-	private void getGivenLevel(Node root, int level, List<Integer> result) {
+	private void getGivenLevel(Node<Integer> root, int level, List<Integer> result) {
 		if (root == null) {
 			return;
 		}
@@ -128,11 +128,11 @@ public class BinaryTree {
 	}
 
 	public static void main(String[] args) {
-		Node left4 = new Node(null, null, 4);
-		Node right5 = new Node(null, null, 5);
-		Node left2 = new Node(left4, right5, 2);
-		Node right3 = new Node(null, null, 3);
-		Node root = new Node(left2, right3, 1);
+		Node<Integer> left4 = new Node<Integer>(null, null, 4);
+		Node<Integer> right5 = new Node<Integer>(null, null, 5);
+		Node<Integer> left2 = new Node<Integer>(left4, right5, 2);
+		Node<Integer> right3 = new Node<Integer>(null, null, 3);
+		Node<Integer> root = new Node<Integer>(left2, right3, 1);
 		BinaryTree tree = new BinaryTree();
 		System.out.println(tree.getHeight(root));
 		System.out.println(tree.size(root));

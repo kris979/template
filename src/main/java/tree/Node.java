@@ -1,11 +1,11 @@
 package tree;
 
-public class Node {
+public class Node<T> {
 
 	private Node left, right;
-	private final Integer value;
+	private final T value;
 	
-	public Node(Node left, Node right, Integer value) {
+	public Node(Node left, Node right, T value) {
 		super();
 		this.left = left;
 		this.right = right;
@@ -20,7 +20,7 @@ public class Node {
 		return right;
 	}
 
-	public final Integer getValue() {
+	public final T getValue() {
 		return value;
 	}
 
