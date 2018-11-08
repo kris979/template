@@ -57,7 +57,7 @@ public class BinaryTree {
 	/**
 	 * left - root - right
 	 */
-	List<Integer> inOrder(Node<Integer> root) {
+	List<Integer> inOrderTraversal(Node<Integer> root) {
 		List<Integer> result = new ArrayList<>();
 		if (root == null) {
 			return result;
@@ -67,13 +67,39 @@ public class BinaryTree {
 		Node<Integer> right = root.getRight();
 
 		if (left != null) {
-			result.addAll(inOrder(left));
+			result.addAll(inOrderTraversal(left));
 		}
 
 		result.add(root.getValue());
 
 		if (right != null) {
-			result.addAll(inOrder(right));
+			result.addAll(inOrderTraversal(right));
+		}
+
+		return result;
+	}
+
+
+	/**
+	 * root - left - ight
+	 */
+	List<Integer> preOrderTraversal(Node<Integer> root) {
+		List<Integer> result = new ArrayList<>();
+		if (root == null) {
+			return result;
+		}
+
+		result.add(root.getValue());
+
+		Node<Integer> left = root.getLeft();
+		Node<Integer> right = root.getRight();
+
+		if (left != null) {
+			result.addAll(preOrderTraversal(left));
+		}
+
+		if (right != null) {
+			result.addAll(preOrderTraversal(right));
 		}
 
 		return result;
@@ -136,7 +162,8 @@ public class BinaryTree {
 		BinaryTree tree = new BinaryTree();
 		System.out.println(tree.getHeight(root));
 		System.out.println(tree.size(root));
-		System.out.println(tree.inOrder(root));
+        System.out.println(tree.preOrderTraversal(root));
+		System.out.println(tree.inOrderTraversal(root));
 		System.out.println(tree.recursiveLevelOrderTraversal(root));
 		System.out.println(tree.levelOrderTraversal(root));
 	}

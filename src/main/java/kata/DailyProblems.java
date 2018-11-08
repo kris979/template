@@ -260,4 +260,20 @@ public class DailyProblems {
         return -1;
     }
 
+//    9,4,8,10,7,1
+
+    public int findMaxProfit(Integer[] ints) {
+        int maxProfit = 0;
+
+        for (int i = 0; i < ints.length; i++) {
+            for (int j = 0; j < i; j++) {
+                int diff = ints[i] - ints[j];
+                if (diff > maxProfit) {
+                    maxProfit = diff;
+                }
+            }
+        }
+
+        return maxProfit;
+    }
 }
