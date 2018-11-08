@@ -66,4 +66,12 @@ public class DailyProblemsTest {
 //		Given the array [-5, -1, -8, -9], the maximum sum would be 0, since we would not take any elements.
     }
 
+    @Test
+    public void dailyCodingProblem47Test() {
+        assertThat(dp.findMaxProfit(new Integer[] {9,11,8,10,15}), is(equalTo(7)));
+        assertThat(dp.findMaxProfit(new Integer[] {9,4,8,10,7,1}), is(equalTo(6)));
+        assertThat(dp.findMaxProfit(new Integer[] {3,9,11,10,1,9}), is(equalTo(8)));
+        assertThat(dp.findMaxProfit(new Integer[] {9,4,8,10,7,10}), is(equalTo(6)));
+        assertThat(dp.findMaxProfit(new Integer[] {9,8,10,7,10}), is(equalTo(3)));
+    }
 }
