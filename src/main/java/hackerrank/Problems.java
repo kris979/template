@@ -147,31 +147,29 @@ public class Problems {
 
     static List<Integer> freqQuery(List<List<Integer>> queries) {
         List<Integer> ret = new LinkedList<>();
-        Map<Integer, Long> digits = new HashMap<>(); //coutners
+        Map<Integer, Integer> digits = new HashMap<>(); //digit, coutners
         for (List<Integer> list : queries) {
             Integer action = list.get(0);
             Integer digit = list.get(1);
 
-            Long counter = digits.get(digit);
+            Integer counter = digits.get(digit);
             if (action == 1) {
-                if (counter == null) {
-                    digits.put(digit, 1L);
-                } else {
+                if (counter != null) {
                     digits.put(digit, ++counter);
+                } else {
+                    digits.put(digit, 1);
                 }
             } else if (action == 2) {
                 if (counter != null) {
-                    digits.put(digit, --counter);
-                }
-            } else if (action == 3) {
-                boolean found = false;
-                Collection<Long> counters = digits.values();
-                for (Long integer : counters) {
-                    if (integer == Long.valueOf(digit)) {
-                        found = true;
+                    --counter;
+                    if (counter > 0) {
+                        digits.put(digit, counter);
+                    } else {
+                        digits.remove(digit);
                     }
                 }
-                if (found) {
+            } else if (action == 3) {
+                if (digits.containsValue(digit)) {
                     ret.add(1);
                 } else {
                     ret.add(0);
@@ -184,17 +182,18 @@ public class Problems {
     public static void main(String[] args) throws IOException {
 
         List<List<Integer>> inputs = new Reader().readInput();
-        List<Integer> expectedoutput = new Reader().readOutput();
+        List<Integer> expected = new Reader().readOutput();
         List<Integer> output = freqQuery(inputs);
-        System.out.println(output);
-        System.out.println(output.size());
-        System.out.println(expectedoutput.size());
-        for (int i=0;i<33246;i++){
-            Integer out = output.get(i);
-            Integer expectedOut = expectedoutput.get(i);
-            if (out != expectedOut) {
-                System.out.println("out = " + out + ", exp = " +expectedOut + " at index " +i);
-            }
-        }
+        System.out.println("exp.size="+expected.size());
+        System.out.println("out.size="+output.size());
+        System.out.println(expected.equals(output));
+//        for (int i=0;i< output.size();i++){
+//            Integer out = output.get(i);
+//            Integer expectedOut = expected.get(i);
+//            if (out != expectedOut) {
+//                System.out.println("index:"+i+" exp:"+expectedOut+" got:"+out);
+//            }
+//        }
+        System.out.println("END!");
     }
 }
