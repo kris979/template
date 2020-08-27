@@ -45,15 +45,13 @@ public class SimpleProblems {
 
     static long repeatedString(String s, long n) {
 
-        long total = 0;
-
         long count = s.chars().filter(c -> c == 'a').count();
 
         int length = s.length();
 
         long howManyTImes = n / length;
 
-        total = count * howManyTImes;
+        long total = count * howManyTImes;
 
         long rest = n % length;
 
