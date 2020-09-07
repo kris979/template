@@ -1,32 +1,13 @@
 package kata;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
 
-/**
- * @author kris9
- *
- */
-/**
- * @author kris9
- *
- */
 public class DailyProblems {
 
 	public DailyProblems() {
 	}
 
-	/**
-	 * @param input
-	 * @return
-	 */
 	public char firstNonRepeatingChar(String input) {
 
 		LinkedHashMap<Character, Integer> counterMap = new LinkedHashMap<>();
@@ -52,11 +33,6 @@ public class DailyProblems {
 		return 0;
 	}
 
-	/**
-	 * @param input
-	 * @param k
-	 * @return
-	 */
 	public int numberOfDistinctPairsThatAddUpToK(int[] input, int k) {
 		Set<Integer> reminders = new HashSet<>();
 
@@ -72,10 +48,7 @@ public class DailyProblems {
 		return counter;
 	}
 
-	/**
-	 * @param input
-	 */
-	public void substraings(String input) {
+	public void substring(String input) {
 		Map<Character, String> substrings = new HashMap<>();
 		char[] charArray = input.toCharArray();
 		Character previous = charArray[0];
@@ -114,11 +87,9 @@ public class DailyProblems {
 		if (input == 0 || input == 1) {
 			return 1;
 		} else if (input == 2) {
-			int output = numWays(input - 1) + numWays(input - 2);
-			return output;
+			return numWays(input - 1) + numWays(input - 2);
 		}
-		int output = numWays(input - 1) + numWays(input - 2) + numWays(input - 3);
-		return output;
+		return numWays(input - 1) + numWays(input - 2) + numWays(input - 3);
 	}
 
 	/**
@@ -149,12 +120,12 @@ public class DailyProblems {
 	}
 
 	/**
-	 * @param a
-	 * @param b
-	 * @return
+	 * @param a fractions
+	 * @param b fractions
+	 * @return sum of fractions
 	 */
 	public int[] sumOfFractions(int[] a, int[] b) {
-		if (a.length != 2 && a.length != 2) {
+		if (a.length != 2 && b.length != 2) {
 			throw new IllegalArgumentException();
 		}
 		int[] result = new int[2];
@@ -207,11 +178,7 @@ public class DailyProblems {
 			}
 
 			boolean isValid(int[] slot) {
-				if (start <= slot[0] && end >= slot[1]) {
-					return true;
-				} else {
-					return false;
-				}
+				return start <= slot[0] && end >= slot[1];
 			}
 		}
 
@@ -243,16 +210,11 @@ public class DailyProblems {
 	 * In other words, find the lowest positive integer that does not exist in the array. 
 	 * The array can contain duplicates and negative numbers as well. 
 	 * For example, the input [3, 4, -1, 1] should give 2. The input [1, 2, 0] should give 3.
-	 * 
-	 * @param input
-	 * @return
 	 */
 	int findFirstPositiveMissingInteger(int[] input) {
 		int[] present = new int[1000];
 
-		for (int i = 0; i < present.length; i++) {
-			present[i] = -1;
-		}
+		Arrays.fill(present, -1);
 
 		for (int i : input) {
 			if (i >= 0) {
