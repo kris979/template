@@ -24,17 +24,17 @@ public class Node {
 		return value;
 	}
 
-	@Override
-	public String toString() {
-		return "Node [value=" + value + "]";
-	}
-
 	public final void setLeft(Node left) {
 		this.left = left;
 	}
 
 	public final void setRight(Node right) {
 		this.right = right;
+	}
+
+	@Override
+	public String toString() {
+		return "Node [value=" + value + "]";
 	}
 
 }
