@@ -9,7 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
-import common.Node;
+import datastructures.common.Node;
 /**
  * @author kris9
  *
@@ -17,9 +17,9 @@ import common.Node;
 public class SerializeDeserializeBTreeTest {
 	
 	/**
-	 * Given the root to a binary tree, implement serialize(root), which serializes
-	 * the tree into a string, and deserialize(s), which deserializes the string
-	 * back into the tree.
+	 * Given the root to a binary datastructures.tree, implement serialize(root), which serializes
+	 * the datastructures.tree into a string, and deserialize(s), which deserializes the string
+	 * back into the datastructures.tree.
 	 * 
 	 * For example, given the following Node class
 	 * 
