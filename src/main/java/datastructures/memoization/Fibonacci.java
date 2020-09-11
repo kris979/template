@@ -8,7 +8,7 @@ public class Fibonacci {
      * O(2^N)
      */
     public int slowFib(final int n) {
-        if (n==0) {
+        if (n == 0) {
             return 0;
         } else if (n == 1) {
             return 1;
@@ -21,7 +21,7 @@ public class Fibonacci {
      * O(n)
      */
     public int fastFib(final int n) {
-        if (n==0) {
+        if (n == 0) {
             return 0;
         } else if (n == 1) {
             return 1;
