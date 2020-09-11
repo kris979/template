@@ -4,6 +4,9 @@ public class Fibonacci {
 
     private int[] memo = new int[1001];
 
+    /**
+     * O(2^N)
+     */
     public int slowFib(final int n) {
         if (n==0) {
             return 0;
@@ -14,6 +17,9 @@ public class Fibonacci {
         }
     }
 
+    /**
+     * O(n)
+     */
     public int fastFib(final int n) {
         if (n==0) {
             return 0;
