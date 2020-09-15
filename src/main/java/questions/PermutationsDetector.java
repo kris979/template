@@ -14,7 +14,7 @@ public class PermutationsDetector {
         return dstCounter.equals(srcCounter);
     }
 
-    private Map<Character, Integer> countChars(final String src) {
+    public static Map<Character, Integer> countChars(final String src) {
         Map<Character, Integer> counters = new HashMap<>();
         for (Character c : src.toCharArray()) {
             Integer count = counters.get(c);
