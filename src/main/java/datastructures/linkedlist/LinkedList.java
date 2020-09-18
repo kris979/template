@@ -2,6 +2,7 @@ package datastructures.linkedlist;
 
 import datastructures.common.DataNode;
 
+import java.util.HashSet;
 import java.util.Optional;
 
 public class LinkedList {
@@ -80,6 +81,21 @@ public class LinkedList {
             if (current.next.data.equals(data)) {
                 current.next = current.next.next;
                 break;
+            }
+            current = current.next;
+        }
+    }
+
+    public void removeDuplicates() {
+        DataNode<Integer> current = head;
+        DataNode<Integer> previous = null;
+        HashSet<Integer> uniques = new HashSet<>();
+        while (current != null) {
+            if (uniques.contains(current.data)) {
+                previous.next = current.next; //skip duplicate
+            } else {
+                uniques.add(current.data);
+                previous = current;
             }
             current = current.next;
         }
