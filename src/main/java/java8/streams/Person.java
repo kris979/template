@@ -1,6 +1,11 @@
 package java8.streams;
 
-public class Person {
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
+
+import java.util.Random;
+import java.util.function.IntSupplier;
+
+public class Person implements IntSupplier {
 
     private String firstName;
     private String lastName;
@@ -36,13 +41,13 @@ public class Person {
         this.age = age;
     }
 
-
     @Override
     public String toString() {
-        return "Person{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                '}';
+        return firstName + " " + lastName + "(" + age + ")";
+    }
+
+    @Override
+    public int getAsInt() {
+        return new Random().nextInt(10);
     }
 }

@@ -1,28 +1,29 @@
 package java8.lambdas;
 
+import java8.streams.Person;
+
+import java.util.Arrays;
+import java.util.List;
+
 /**
- * Enables functional programming
- *  -readable and concise code
- *  -easier to use APIs and libraries
- *  -enables support for parallel processing
+ * -enables functional programming
+ * -readable and concise code
+ * -easier to use APIs and libraries
+ * -enables support for parallel processing
  */
 public class Lambdas {
 
-    public static class HelloWorldPerformance implements Performance {
-        @Override
-        public void perform(final String who) {
-            System.out.println("Hello World! " + who);
-        }
-    }
-
 
     public static void main(String[] args) {
-        Performance hello = new HelloWorldPerformance();
-        Performance helloLambda = (s) -> System.out.println("Hello Lambda!" + s);
 
+        final List<Person> ppl = Arrays.asList(new Person("Kris", "Bliszczak", 40),
+                                               new Person("Amy", "Bliszczak", 8),
+                                               new Person("Agnieszka", "Rozanska", 45));
         Performer performer = new Performer();
-        performer.perform(hello);
-        performer.perform(helloLambda);
-        performer.perform((s) -> System.out.println("inline Hello"));
+        performer.greet(ppl);
+        performer.perform(() -> System.out.println("Performing Hello World"));
+        performer.printScoresFromAudience(ppl);
+
+
     }
 }
