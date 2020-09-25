@@ -6,4 +6,9 @@ public class DataNode<E> {
     public DataNode(E data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "(" + data + ")";
+    }
 }

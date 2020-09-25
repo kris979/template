@@ -7,12 +7,16 @@ import java.util.Optional;
 
 public class LinkedList {
 
-    private DataNode<Integer> head;
+    private DataNode<Integer> head, slow, fast, cycleStart;
 
     public void addFirst(int data) {
         DataNode newHead = new DataNode(data);
-        newHead.next = head;
-        head = newHead;
+        addFirst(newHead);
+    }
+
+    public void addFirst(final DataNode<Integer> node) {
+        node.next = head;
+        head = node;
     }
 
     //O(1)
@@ -30,7 +34,7 @@ public class LinkedList {
             return Optional.empty();
         }
         DataNode<Integer> current = head;
-        while(current.next != null) {
+        while (current.next != null) {
             current = current.next;
         }
         return Optional.of(current.data);
@@ -38,14 +42,17 @@ public class LinkedList {
 
     public void addLast(final int data) {
         DataNode<Integer> newLast = new DataNode(data);
+        addLast(newLast);
+    }
 
+    public void addLast(DataNode<Integer> newLast) {
         if (head == null) {
             head = newLast;
             return;
         }
 
         DataNode current = head;
-        while(current.next != null) {
+        while (current.next != null) {
             current = current.next;
         }
         current.next = newLast;
@@ -57,7 +64,7 @@ public class LinkedList {
         }
         int counter = 1;
         DataNode<Integer> current = head;
-        while(current.next != null) {
+        while (current.next != null) {
             current = current.next;
             counter++;
         }
@@ -77,7 +84,7 @@ public class LinkedList {
             return;
         }
         DataNode<Integer> current = head;
-        while(current.next != null) {
+        while (current.next != null) {
             if (current.next.data.equals(data)) {
                 current.next = current.next.next;
                 break;
@@ -99,5 +106,36 @@ public class LinkedList {
             }
             current = current.next;
         }
+    }
+
+    public boolean hasLoop() {
+        if (head == null || head.next == null || head.next.next == null) {
+            return false;
+        }
+        slow = head.next;
+        fast = head.next.next;
+        while (slow != fast) {
+            if (fast.next == null || fast.next.next == null) {
+                return false;
+            } else {
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+        }
+        System.out.println("Loop detected:" + slow + "," + fast);
+        return true;
+    }
+
+
+    public DataNode<Integer> firstLoopNode() {
+        hasLoop();
+        slow = head;
+        while (slow != fast) {
+            System.out.println(slow + "," + fast);
+            slow = slow.next;
+            fast = fast.next;
+        }
+        System.out.println("First node of the loop: " + slow);
+        return slow;
     }
 }

@@ -1,5 +1,6 @@
 package datastructures.linkedlist;
 
+import datastructures.common.DataNode;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -69,5 +70,52 @@ public class LinkedListTest {
         assertThat(list.size(), is(2));
     }
 
+    @Test
+    public void hasloop() {
+        DataNode<Integer> four = new DataNode<>(4);
+        DataNode<Integer> eight = new DataNode<>(8);
+        eight.next = four;
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(four);
+        list.addLast(5);
+        list.addLast(6);
+        list.addLast(7);
+        list.addLast(eight);
+        assertTrue(list.hasLoop());
+    }
 
+    @Test
+    public void noLoop() {
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        assertFalse(list.hasLoop());
+    }
+
+    @Test
+    public void firstLoopNode() {
+        DataNode<Integer> four = new DataNode<>(4);
+        DataNode<Integer> eight = new DataNode<>(8);
+        eight.next = four;
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(four);
+        list.addLast(5);
+        list.addLast(eight);
+        assertThat(list.firstLoopNode(),is(four));
+    }
+
+    @Test
+    public void duplicates() {
+        list.addFirst(1);
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addFirst(2);
+        assertThat(list.size(), is(4));
+        list.removeDuplicates();
+        assertThat(list.size(), is(2));
+    }
 }
