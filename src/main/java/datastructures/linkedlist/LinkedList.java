@@ -7,10 +7,10 @@ import java.util.Optional;
 
 public class LinkedList {
 
-    private DataNode<Integer> head, slow, fast, cycleStart;
+    private DataNode<Integer> head, slow, fast;
 
     public void addFirst(int data) {
-        DataNode newHead = new DataNode(data);
+        DataNode<Integer> newHead = new DataNode<>(data);
         addFirst(newHead);
     }
 
@@ -41,7 +41,7 @@ public class LinkedList {
     }
 
     public void addLast(final int data) {
-        DataNode<Integer> newLast = new DataNode(data);
+        DataNode<Integer> newLast = new DataNode<>(data);
         addLast(newLast);
     }
 
@@ -51,7 +51,7 @@ public class LinkedList {
             return;
         }
 
-        DataNode current = head;
+        DataNode<Integer> current = head;
         while (current.next != null) {
             current = current.next;
         }
